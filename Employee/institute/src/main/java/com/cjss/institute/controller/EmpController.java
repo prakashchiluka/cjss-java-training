@@ -3,8 +3,10 @@ package com.cjss.institute.controller;
 import com.cjss.institute.model.Employees;
 import com.cjss.institute.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -13,7 +15,7 @@ public class EmpController {
     @Autowired
     EmpService empService;
     @PostMapping("/add-Employee")
-    public Employees addEmployees(@RequestBody Employees employees){
+    public Employees addEmployees(@Valid @RequestBody Employees employees){
        return empService.addEmployees(employees);
     }
 

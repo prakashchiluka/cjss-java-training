@@ -13,9 +13,7 @@ public class EmpService {
     private List<Employees> employeesList = new ArrayList<>();
     public Employees addEmployees( Employees employees){
 
-        Employees employees1 = new Employees(employees.getId(), employees.getName(), employees.getSal(), employees.getLocation(), employees.getDepartment(), employees.getBenifits());
-        employees1.setBenifits(employees.getBenifits());
-        employeesList.add(employees1);
+        Employees employees1 = new Employees(employees.getId(),employees.getName(),employees.getEmail(),employees.getSal(),employees.getLocation(),employees.getDepartment(),employees.getBenifits());
         return employees1;
     }
 
