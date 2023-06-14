@@ -1,8 +1,19 @@
 package com.cjss.institute.model;
 
+import com.cjss.institute.validators.ValidateCountryName;
+import com.cjss.institute.validators.ValidateLocationName;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class Location {
+	@NotNull
 	private  int lid;
+	@NotEmpty
+	@ValidateLocationName(message = "City name must be Hyderabad or Chennai or London")
 	private  String lName;
+	@NotEmpty
+	@ValidateCountryName(message = "Country name must be London or India")
 	private  String lCountry;
 	
 	

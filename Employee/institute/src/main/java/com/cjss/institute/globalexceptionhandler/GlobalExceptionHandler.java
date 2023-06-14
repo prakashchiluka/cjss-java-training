@@ -7,6 +7,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.validation.ConstraintViolationException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,4 +25,5 @@ public class GlobalExceptionHandler {
                });
        return new  ResponseEntity<Map<String,String>>(map, HttpStatus.BAD_REQUEST);
     }
+
 }

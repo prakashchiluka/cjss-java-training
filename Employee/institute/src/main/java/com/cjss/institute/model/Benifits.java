@@ -1,8 +1,16 @@
 package com.cjss.institute.model;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Benifits {
+	@NotNull
 	private int bId;
+	@NotEmpty
 	private String bName;
+	@NotEmpty(message = "Description must not be Empty")
+	@Size(min = 10 , message = "Description must be more than 10 characters")
 	private String bDesc;
 
 

@@ -3,6 +3,8 @@ package com.cjss.institute.controller;
 import com.cjss.institute.model.Employees;
 import com.cjss.institute.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +17,11 @@ public class EmpController {
     @Autowired
     EmpService empService;
     @PostMapping("/add-Employee")
-    public Employees addEmployees(@Valid @RequestBody Employees employees){
-       return empService.addEmployees(employees);
+    //public Employees addEmployees(@Valid @RequestBody Employees employees){
+    public ResponseEntity<Employees> addEmployees(@Valid @RequestBody Employees employees){
+     return   new ResponseEntity<Employees>(empService.addEmployees(employees),HttpStatus.CREATED);
+     //   return empService.addEmployees(employees);
+
     }
 
     @GetMapping("/get-by-id/{id}")

@@ -1,5 +1,6 @@
 package com.cjss.institute.model;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 
@@ -10,17 +11,21 @@ Employees {
 	int id;
 	@NotBlank
 	@Size(min = 3,max = 20,message = "name must contain minimum of 3 characters and maximum of 20 characters")
+	@Pattern(regexp = "[a-zA-z]+[.]?[a-zA-Z]+")
+			//added Pattern to name which accepts only Alphabets
 	String name;
 
 	@Email(message = "given email is not valid,please provide valid email address")
+//	@Pattern(regexp = "[A-Za-z0-9\\-._]+[@]+[a-z]+[.]+[a-z]{2,4}",message = "given email is not valid,please provide valid email address")
 	String email;
 	@NotNull(message = "please provide valid details")
 	@PositiveOrZero(message = "please provide positive values")
 	Double sal;
-	Location location;
-	Department department;
 
-	List<Benifits> benifits;
+	@Valid Location location;
+	@Valid Department department;
+
+	List<@Valid Benifits> benifits;
 
 	public Employees(int id, String name, String email, Double sal, Location location, Department department, List<Benifits> benifits) {
 		this.id = id;
