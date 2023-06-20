@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = CountryNameValidator.class)
 public @interface ValidateCountryName {
-    public String message() default "please provide Valid Country Name";
+    public String message() default "please provide Valid Country Name ex: India or UK";
 
     Class<?>[] groups() default { };
 
